@@ -12,4 +12,4 @@ jobs:
   run-terraform:
     uses: heyrun/terraform_gitactions/.github/workflows/terraform.yaml@master #to be changed to @master
     with:
-      working_dir: dev
+      working_dir: 'dev/'
