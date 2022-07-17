@@ -29,7 +29,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: print pwd
-      run: pwd
+      run: ls
 
     - name: echo working_dir
       run: echo ${{ inputs.working_dir }}
