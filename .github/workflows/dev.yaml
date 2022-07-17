@@ -2,8 +2,8 @@ name: Global s3
 
 on:
   push:
-    paths:
-    - 'dev'  
+    #paths:
+    #- 'dev'  
   pull_request:
     paths:
     - 'dev/'
