@@ -37,7 +37,10 @@ jobs:
         terraform_wrapper: true
 
     - name: Change directory
-      run: cd ${{ inputs.working_dir }}
+      run: |
+        cd ${process.env.PLAN}
+        pwd
+        ls
       continue-on-error: true
 
 
