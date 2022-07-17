@@ -22,7 +22,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{inputs.working_dir}}
+        #working-directory: ${{inputs.working_dir}}
 
     steps:
     # Checkout the repository to the GitHub Actions runner

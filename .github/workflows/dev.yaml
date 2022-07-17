@@ -1,12 +1,12 @@
 name: Dev
 
-on:
-  push:
-    #paths:
-    #- 'dev'  
-  pull_request:
-    paths:
-    - 'dev/'
+#on:
+#  push:
+#    #paths:
+#    #- 'dev'  
+#  pull_request:
+#    paths:
+#    - 'dev/'
 
 jobs:
   run-terraform:
