@@ -37,7 +37,7 @@ jobs:
         terraform_wrapper: true
 
     - name: Change directory
-      run: echo $GITHUB_WORKSPACE
+      run: echo '$GITHUB_WORKSPACE'
       continue-on-error: true
 
 
