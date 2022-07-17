@@ -28,7 +28,15 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
+    - name: print pwd
+      run: pwd
 
+    - name: echo working_dir
+      run: echo ${{ inputs.working_dir }}
+
+
+    - name: echo variable
+      run: echo ${{ secrets.TF_API_TOKEN }}
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
@@ -40,7 +48,7 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
-      working-directory: ${{inputs.working_dir}}
+      working-directory: ${{ inputs.working_dir }}
       continue-on-error: true
 
     - name: Terraform-Lint
