@@ -1,12 +1,5 @@
 name: 'Terraform'
 
-#on:
-#  push:
-#    branches:
-#    - "master"
-#  pull_request:
-#    paths:
-#    - 'terraform/global/s3'
 on:
   workflow_call:
     inputs:

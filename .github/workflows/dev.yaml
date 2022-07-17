@@ -1,0 +1,18 @@
+name: Global s3
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+    - 'dev/'  
+  pull_request:
+    branches: [ master ]
+    paths:
+    - 'dev/'
+
+jobs:
+  run-terraform:
+    uses: heyrun/terraform_gitactions/.github/workflows/terraform.yaml@master #to be changed to @master
+    with:
+      working_dir: dev
