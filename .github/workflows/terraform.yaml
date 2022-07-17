@@ -43,7 +43,9 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init
+      run: |
+        cd ${{ inputs.working_dir }}
+        terraform init
       working-directory: ${{ inputs.working_dir }}
       continue-on-error: true
 
