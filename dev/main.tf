@@ -3,7 +3,7 @@ terraform {
     organization = "aaron_test"
 
     workspaces {
-      name = "gitactions"
+      name = "dev-gitactions"
     }
   }
 }
