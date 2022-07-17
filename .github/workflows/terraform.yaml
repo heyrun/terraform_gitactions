@@ -6,6 +6,9 @@ on:
       working_dir:
         required: true
         type: string
+      env:
+        required: true
+        type: string
 permissions:
   contents: read
 
@@ -13,7 +16,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: production
+    environment: ${{ inputs.env }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -35,6 +38,11 @@ jobs:
     - name: Terraform Init
       run: terraform init
       working-directory: ${{inputs.working_dir}}
+
+    - name: Terraform-Lint
+      # You may pin to the exact commit or the version.
+      # uses: actionshub/terraform-lint@0a86dd0b510e5fd6ab5b13179d6979dc82e5cb8e
+      uses: actionshub/terraform-lint@1.0.0
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
