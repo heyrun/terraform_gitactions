@@ -38,22 +38,26 @@ jobs:
     - name: Terraform Init
       run: terraform init
       working-directory: ${{inputs.working_dir}}
+      continue-on-error: true
 
     - name: Terraform-Lint
       # You may pin to the exact commit or the version.
       # uses: actionshub/terraform-lint@0a86dd0b510e5fd6ab5b13179d6979dc82e5cb8e
       uses: actionshub/terraform-lint@1.0.0
+      continue-on-error: true
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
       run: terraform fmt -check
       working-directory: ${{inputs.working_dir}}
+      continue-on-error: true
 
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan -input=false
       working-directory: ${{inputs.working_dir}}
+      continue-on-error: true
 
 
       # On push to "master", build or change infrastructure according to Terraform configuration files
