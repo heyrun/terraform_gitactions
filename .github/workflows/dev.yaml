@@ -2,12 +2,9 @@ name: Global s3
 
 on:
   push:
-    branches:
-      - master
     paths:
     - 'dev/'  
   pull_request:
-    branches: [ master ]
     paths:
     - 'dev/'
 
