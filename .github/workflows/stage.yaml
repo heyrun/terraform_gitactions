@@ -12,5 +12,5 @@ jobs:
   run-terraform:
     uses: heyrun/terraform_gitactions/.github/workflows/terraform.yaml@master #to be changed to @master
     with:
-      working_dir: './stage/'
+      working_dir: 'stageing/'
       env: 'dev'

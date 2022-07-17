@@ -30,9 +30,11 @@ jobs:
       uses: actions/checkout@v3
     - name: print pwd
       run: cd ${{ inputs.working_dir }}
+      continue-on-error: true
 
     - name: echo working_dir
       run: echo ${{ inputs.working_dir }}
+      continue-on-error: true
 
 
     - name: echo variable
