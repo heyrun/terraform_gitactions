@@ -3,7 +3,7 @@ name: Global s3
 on:
   push:
     paths:
-    - 'dev/'  
+    - 'dev'  
   pull_request:
     paths:
     - 'dev/'
