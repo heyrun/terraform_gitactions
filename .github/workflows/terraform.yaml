@@ -23,6 +23,8 @@ jobs:
       run:
         shell: bash
         #working-directory: ${{inputs.working_dir}}
+    env:
+      TF_LOG=debug
 
     steps:
     # Checkout the repository to the GitHub Actions runner
@@ -34,7 +36,7 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-    - name: Change directory
+    - name: show worksapce variable
       run: echo '$GITHUB_WORKSPACE'
       continue-on-error: true
 
@@ -42,7 +44,8 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: |
-        pwd
+        env
+        echo "-------------------------env above---------------"
         terraform init
       working-directory: ${{ inputs.working_dir }}
       continue-on-error: true
