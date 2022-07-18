@@ -34,7 +34,6 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-        terraform_wrapper: true
 
     - name: Change directory
       run: echo '$GITHUB_WORKSPACE'
