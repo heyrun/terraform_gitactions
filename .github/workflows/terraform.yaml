@@ -33,13 +33,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
-<<<<<<< HEAD
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-=======
-        cli_config_credentials_token: KhlHWNWKzz6k5g.atlasv1.fIMOqq8J1qQg3QlYRlvIcGAFjThptQsjVh7ibum3eTnyy3X1ycnbB33O9aFkzzlwPuk
-        terraform_wrapper: true
->>>>>>> 3ddaef8d3a90b1e2b01a813ed243e7de727a4c9c
-
     - name: Change directory
       run: echo '$GITHUB_WORKSPACE'
       continue-on-error: true
@@ -48,7 +42,7 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: |
-        cd ${{ inputs.working_dir }}
+        pwd
         terraform init
       working-directory: ${{ inputs.working_dir }}
       continue-on-error: true
