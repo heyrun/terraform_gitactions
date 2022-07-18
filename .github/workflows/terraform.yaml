@@ -44,6 +44,7 @@ jobs:
       run: |
         env
         echo "-------------------------env above---------------"
+        export TF_LOG=debug
         terraform init
       working-directory: ${{ inputs.working_dir }}
       continue-on-error: true
