@@ -2,13 +2,17 @@ name: 'Terraform'
 
 on:
   workflow_call:
+    secrets:
+      TF_API_TOKEN:
+        required: true
     inputs:
       working_dir:
         required: true
         type: string
-      environ:
+      to_apply:
         required: true
-        type: string
+        type: boolean
+        default: false
 permissions:
   contents: read
 
@@ -16,6 +20,8 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
+    env:
+      TF_TOKEN_app_terraform_io: KhlHWNWKzz6k5g.atlasv1.fIMOqq8J1qQg3QlYRlvIcGAFjThptQsjVh7ibum3eTnyy3X1ycnbB33O9aFkzzlwPuk
     #environment: ${{ inputs.environ }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -73,7 +79,7 @@ jobs:
       # On push to "master", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/"master"' && github.event_name == 'push'
+      if: ${{ inputs.to_apply }}
       run: terraform apply -auto-approve -input=false
       working-directory: ${{inputs.working_dir}}
 

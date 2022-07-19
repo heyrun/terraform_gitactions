@@ -14,3 +14,7 @@ jobs:
     with:
       working_dir: 'staging/'
       environ: 'dev'
+      if: github.ref == 'refs/heads/"master"' && github.event_name == 'push'
+      to_apply: true
+    secrets:
+      TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
