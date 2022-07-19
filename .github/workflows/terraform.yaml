@@ -31,6 +31,11 @@ jobs:
         #working-directory: ${{inputs.working_dir}}
 
     steps:
+
+    - name: testing
+      run: |
+        echo "printing out event"
+        echo github.event_name
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
