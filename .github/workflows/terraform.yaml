@@ -35,7 +35,7 @@ jobs:
     - name: testing
       run: |
         echo "printing out event"
-        echo github.event_name
+        echo "$GITHUB_EVENT_NAME"
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
