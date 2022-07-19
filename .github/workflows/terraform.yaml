@@ -38,8 +38,8 @@ jobs:
         echo "$GITHUB_EVENT_NAME"
         echo "_____________________________"
         echo "printing the REF"
-        echo "$GIHUB_REF"
-        
+        echo "$GITHUB_REF"
+
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
