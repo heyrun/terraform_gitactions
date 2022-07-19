@@ -13,7 +13,6 @@ jobs:
     uses: heyrun/terraform_gitactions/.github/workflows/terraform.yaml@master #to be changed to @master
     with:
       working_dir: 'staging/'
-      environ: 'dev'
       if: github.ref == 'refs/heads/"master"' && github.event_name == 'push'
       to_apply: true
     secrets:
